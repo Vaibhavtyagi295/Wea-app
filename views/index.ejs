@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌤️🌨️WeatherApp⛈️🌦️ </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="weatherapp">
+        <img
+            src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHdlYXRoZXIlMjB3aW50ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60">
+         
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+        <div class="flip">
+            <div class="inner"></div>
+        </div>
+         
+        <div class="main">
+            <%if(data==null){%>
+
+                <div class="left">
+                    <div class="brand">
+                        <!-- <small class="arrowinfo">tap for more info</small>
+                        <i class="ri-arrow-down-s-fill arrow"></i>
+                        <small class="backarrowinfo">tap for more info</small>
+                        <i class="ri-arrow-down-s-fill backarrow"></i> -->
+                        <h3>The WeatherApp</h3>
+                    </div>
+                    <div class="detail">
+
+                        <h1 class="temp"> 28°C</h1>
+                        <div class="cityname">
+                            <h1>Thiruvananthapuram</h1>
+                            <small>
+                                <span class="time">
+                                    06:09
+                                </span>
+                                <span class="date">
+                                    Monday Sep 19
+                                </span>
+                            </small>
+                        </div>
+                        <div class="weather">
+                            <i class="ri-sun-line name"></i>
+                            <small>
+                                <span class="condition">
+                                    cloudy havy
+                                </span>
+                            </small>
+                        </div>
+                    </div>
+
+
+                </div>
+                <%}else{%>
+
+                    <div class="left">
+                        <div class="brand">
+                             
+                            <h3>The WeatherApp</h3>
+                        </div>
+                        <div class="detail">
+                            <small class="arrowinfo">Scroll for More Info</small>
+                            <i class="ri-arrow-down-s-fill arrow"></i>
+                            <h1 class="temp">
+                                <%=data.main.temp%> °C
+                            </h1>
+                            <div class="cityname">
+                                <h1>
+                                    <%=data.name%>
+                                </h1>
+                                <small>
+                                    <span class="time">
+                                        06:09
+                                    </span>
+                                    <span class="date">
+                                        Monday Sep 19
+                                    </span>
+                                </small>
+                            </div>
+                            <div class="weather">
+                                <i class="ri-sun-line name"></i>
+                                <small>
+                                    <span class="condition">
+                                        <%=data.weather[0].description%>
+                                    </span>
+                                </small>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="moreinfo">
+
+                        <div class="moreinfobox"><h4><%=data.main.temp_max%><sup>o</sup>C</h4><i class="ri-temp-hot-line"></i><h5>Temp-Max</h5></div>
+                        <div class="moreinfobox"><h4><%=data.main.temp_min%><sup>o</sup>C</h4><i class="ri-temp-cold-line"></i><h5>Temp-Min</h5></div>
+                        <div class="moreinfobox"><h4><%=data.wind.speed%> KMPH</h4><i class="ri-windy-line"></i><h5>Wind-Speed</h5></div>
+                        <div class="moreinfobox"><h4><%=data.clouds.all%></h4><i class="ri-cloud-line"></i><h5>Clouds</h5></div>
+                        <div class="moreinfobox"><h4><%=data.main.humidity%> %</h4><i class="ri-water-flash-line"></i><h5>Humidity</h5></div>
+                        <div class="moreinfobox"><h4><%=data.main.pressure%> Pa</h4><i class="ri-dashboard-2-line"></i><h5>Pressure</h5></div>
+                        <div class="moreinfobox"><h4><%=data.visibility%></h4><i class="ri-eye-line"></i><h5>Visibility</h5></div>
+                       
+                    </div>
+                    <%}%>
+                        <div class="right">
+                            <form action="/" method="post" id="searchInput">
+                                <input type="text" name="city" autocomplete="off" class="search"
+                                    placeholder="Search Location">
+
+                                <button type="submit" class="submit">
+                                    <i class="ri-search-line"></i>
+                                </button>
+                                 
+                            </form>
+                             
+                            <ul class="cities">
+                                
+                            </ul>
+                            <hr>
+                            <ul class="Wdetail">
+                                <h4>Weather</h4>
+                                <li><span>
+                                        Cloudy
+                                    </span>
+                                    <span class="cloud">
+                                        89%
+                                    </span>
+                                </li>
+                                <li><span>
+                                        Humidity
+                                    </span><span class="humidity">
+                                        64%
+                                    </span></li>
+                                <li><span>
+                                        Wind
+                                    </span><span class="wind">5km/hr</span></li>
+
+                            </ul>
+                        </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"
+        integrity="sha512-GQ5/eIhs41UXpG6fGo4xQBpwSEj9RrBvMuKyE2h/2vw3a9x85T1Bt0JglOUVJJLeyIUl/S/kCdDXlE/n7zCjIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/javascripts/suggestions.js"></script>
+    <script>
+
+         
+        gsap.to(".flip", {
+
+
+            width: "0%",
+
+            ease: Expo.easein,
+            duration: "0.1",
+            stagger: "0.1"
+
+        })
+        gsap.to(".flip", {
+            width: "100%",
+            ease: Expo.easein,
+            stagger: "0.1",
+            delay: ".1",
+            backgroundColor: "transparent"
+        })
+        gsap.to(".detail", {
+            opacity: "1",
+            ease: Expo.ease,
+            delay: "1.5",
+             
+        })
+    </script>
+</body>
+
+</html>
